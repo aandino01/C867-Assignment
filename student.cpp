@@ -55,15 +55,15 @@ int Student::getAge() const {
 	return age; 
 }
 
-int Student::getdaysToComplete1() const { 
+int Student::getDaysToComplete1() const { 
 	return daysToComplete[0]; 
 }
 
-int Student::getdaysToComplete2() const { 
+int Student::getDaysToComplete2() const { 
 	return daysToComplete[1]; 
 }
 
-int Student::getdaysToComplete3() const { 
+int Student::getDaysToComplete3() const { 
 	return daysToComplete[2]; 
 }
 
@@ -73,8 +73,7 @@ DegreeProgram Student::getDegreeProgram() const {
 
 // Constructor definition
 
-Student::Student()
-{
+Student::Student() {
 	this->studentID = "";
 	this->firstName = "";
 	this->lastName = "";
@@ -83,7 +82,8 @@ Student::Student()
 	this->daysToComplete[0] = 0;
 	this->daysToComplete[1] = 0;
 	this->daysToComplete[2] = 0;
-	this->degreeProgram;
+	this->degreeProgram = SECURITY; 
+
 }
 
 Student::~Student()
