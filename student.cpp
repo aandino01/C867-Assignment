@@ -72,23 +72,18 @@ DegreeProgram Student::getDegreeProgram() const {
 }
 
 // Constructor definition
-
-Student::Student() {
-	this->studentID = "";
-	this->firstName = "";
-	this->lastName = "";
-	this->emailAddress = "";
-	this->age = 0;
-	this->daysToComplete[0] = 0;
-	this->daysToComplete[1] = 0;
-	this->daysToComplete[2] = 0;
-	this->degreeProgram = SECURITY; 
-
+Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysToComplete[3], DegreeProgram degreeProgram) {
+	this->studentID = studentID;
+	this->firstName = firstName;
+	this->lastName = lastName;
+	this->emailAddress = emailAddress;
+	this->age = age;
+	this->daysToComplete[0] = daysToComplete[0];
+	this->daysToComplete[1] = daysToComplete[1];
+	this->daysToComplete[2] = daysToComplete[2];
+	this->degreeProgram = degreeProgram;
 }
 
-Student::~Student()
-{
-}
 
 //Print method definition
 void Student::print() {

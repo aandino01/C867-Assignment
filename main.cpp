@@ -13,7 +13,7 @@ int main() {
     };
 
     // Create a Student object
-    Student student1("A1", "John", "Doe", "john.doe@example.com", 25, daysToComplete, DegreeProgram::SOFTWARE);
+    Student student1("A1", "John", "Doe", "john.doe@example.com", 25, 15,26,26, DegreeProgram::SOFTWARE);
 
     // Test print method
     student1.print();

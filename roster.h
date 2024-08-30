@@ -7,17 +7,19 @@ using namespace std;
 class Roster {
 
 private:
-    Student* classRosterArray[5];
-    int pos;
-    int amountOfStudents;
+    Student* classRosterArray[5];  
+    int stu;
+    int rosterSize;
 
 public:
-    Roster(int size);
-    ~Roster();
+    Roster(int rosterSize);
+    ~Roster();  
 
-    void addStudent(string studentData);
-    void removeStudent(string studentID);
-    void printAllStudents();
+    void add(string studentFields);
+
+
+    void remove(string studentID);
+    void printAll();
     void printAverageDaysInCourse(string studentID);
     void printInvalidEmails();
     void printByDegreeProgram(DegreeProgram degreeProgram);

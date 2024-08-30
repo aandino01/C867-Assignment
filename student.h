@@ -36,8 +36,7 @@ public:
 	DegreeProgram getDegreeProgram() const;
 
 	// Constructor declaration
-	Student();
-	~Student();
+	Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysToComplete[3], DegreeProgram degreeProgram);
 
 	// Print method declaration
 	void print();
