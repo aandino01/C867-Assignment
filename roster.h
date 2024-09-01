@@ -7,16 +7,16 @@ using namespace std;
 class Roster {
 
 private:
-    Student* classRosterArray[5];  
+    
     int stu;
     int rosterSize;
 
 public:
+    Student* classRosterArray[5];
     Roster(int rosterSize);
     ~Roster();  
 
     void add(string studentFields);
-
 
     void remove(string studentID);
     void printAll();

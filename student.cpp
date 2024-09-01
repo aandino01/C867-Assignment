@@ -104,8 +104,8 @@ void Student::print() {
 	cout << "First Name: " << firstName << "\t"; 
 	cout << "Last Name: " << lastName << "\t";
 	cout << "Age: " << age << "\t ";
-	cout << " daysInCourse: {" << daysToComplete[0] << ", "<< daysToComplete[1] << ", "<< daysToComplete[2] << "}\t ";
-	cout << "Degree Program : " << degProg << "." << endl;
+	cout << " daysInCourse: {" << daysToComplete[0] << ", "<< daysToComplete[1] << ", "<< daysToComplete[2] << "} ";
+	cout << "Degree Program : " << degProg << ".\n";
 }
 
 
