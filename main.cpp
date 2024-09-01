@@ -29,7 +29,7 @@ int main() {
     classRoster.printInvalidEmails();
 
     for (int i = 0; i < numOfstudents; i++) {
-        string studentID = classRoster.classRosterArray[i]->getStudentID(); // Access the student ID
+        string studentID = classRoster.classRosterArray[i]->getStudentID(); 
         classRoster.printAverageDaysInCourse(studentID);
     }
 

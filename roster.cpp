@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Constructor for roster
 Roster::Roster(int rosterSize) {
     this->rosterSize = rosterSize;           
     this->stu = 0;                               
@@ -13,6 +14,7 @@ Roster::Roster(int rosterSize) {
         this->classRosterArray[i] = nullptr; 
     }
 }
+// Roster destructor
 Roster::~Roster() {
     for (int i = 0; i < rosterSize; i++) {
         if (classRosterArray[i] != nullptr) { 
@@ -21,7 +23,7 @@ Roster::~Roster() {
         }
     }
 }
-
+// Add students to roster 
 void Roster::add(string studentFields) {
     stringstream ss(studentFields);
     string objHolder;
@@ -48,7 +50,7 @@ void Roster::add(string studentFields) {
     daysArray[1] = stoi(objArr[6]);
     daysArray[2] = stoi(objArr[7]);
 
-                                    // ID,         first,     last,     email,     age     
+                                    // ID,      first name, last name,   email,     age     
     Student* newStudent = new Student(objArr[0], objArr[1], objArr[2], objArr[3], stoi(objArr[4]), 
         daysArray, degreeProgram);
 
@@ -57,7 +59,7 @@ void Roster::add(string studentFields) {
         stu += 1;
     }
 }
-
+// Remove students from roster
 void Roster::remove(string studentID) {
     bool isFound = false;
 
@@ -83,7 +85,7 @@ void Roster::remove(string studentID) {
     }
 
 }
-
+// Print all students who have been added to the roster
 void Roster::printAll() {
     for (int i = 0; i < stu; i++) {
         if (classRosterArray[i] != nullptr) {
@@ -92,7 +94,7 @@ void Roster::printAll() {
     }
     cout << endl;
 }
-
+// Average number of days it takes a student to complete a course
 void Roster::printAverageDaysInCourse(string studentID) {
     for (int i = 0; i < stu; i++) {
         if (classRosterArray[i]->getStudentID() == studentID) {
@@ -108,8 +110,7 @@ void Roster::printAverageDaysInCourse(string studentID) {
         }
     }
 }
-
-
+// Print emails that are not valid
 void Roster::printInvalidEmails() {
     for (int i = 0; i < stu; i++) {
         string email = classRosterArray[i]->getEmailAddress();
@@ -126,7 +127,7 @@ void Roster::printInvalidEmails() {
     }
     cout << endl;
 }
-
+// Filter out students by degree program and print them
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
     cout << endl;
     for (int i = 0; i < stu; i++) {

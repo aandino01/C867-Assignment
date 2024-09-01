@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// Setters definitions
+// Setters 
 void Student::setStudentID(string studentID) { 
 	this->studentID = studentID; 
 }
@@ -34,7 +34,7 @@ void Student::setDegreeProgram(DegreeProgram degreeProgram) {
 	this->degreeProgram = degreeProgram; 
 }
 
-// Getters definitions
+// Getters 
 string Student::getStudentID() const { 
 	return studentID; 
 }
@@ -71,7 +71,7 @@ DegreeProgram Student::getDegreeProgram() const {
 	return degreeProgram; 
 }
 
-// Constructor definition
+// Constructor for student
 Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysToComplete[3], DegreeProgram degreeProgram) {
 	this->studentID = studentID;
 	this->firstName = firstName;
@@ -84,8 +84,6 @@ Student::Student(string studentID, string firstName, string lastName, string ema
 	this->degreeProgram = degreeProgram;
 }
 
-
-//Print method definition
 void Student::print() {
 	string degProg;
 	switch (degreeProgram) {

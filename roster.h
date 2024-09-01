@@ -7,7 +7,6 @@ using namespace std;
 class Roster {
 
 private:
-    
     int stu;
     int rosterSize;
 
