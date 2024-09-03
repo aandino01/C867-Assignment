@@ -20,16 +20,16 @@ int main() {
     Roster classRoster(5);
 
     int numOfstudents = sizeof(studentData) / sizeof(studentData[0]);
-    
+
     for (int i = 0; i < numOfstudents; i++) {
-        classRoster.add(studentData[i]);
+        classRoster.parseAndAddStudent(studentData[i]);
     }
 
     classRoster.printAll();
     classRoster.printInvalidEmails();
 
     for (int i = 0; i < numOfstudents; i++) {
-        string studentID = classRoster.classRosterArray[i]->getStudentID(); 
+        string studentID = classRoster.classRosterArray[i]->getStudentID();
         classRoster.printAverageDaysInCourse(studentID);
     }
 

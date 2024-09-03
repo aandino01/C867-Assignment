@@ -13,9 +13,11 @@ private:
 public:
     Student* classRosterArray[5];
     Roster(int rosterSize);
-    ~Roster();  
+    ~Roster();
 
-    void add(string studentFields);
+    void parseAndAddStudent(string studentFields);
+    void add(string studentID, string firstName, string lastName, 
+        string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
 
     void remove(string studentID);
     void printAll();

@@ -23,40 +23,52 @@ Roster::~Roster() {
         }
     }
 }
-// Add students to roster 
-void Roster::add(string studentFields) {
-    stringstream ss(studentFields);
+// Parse student data and call add method
+void Roster::parseAndAddStudent(string studentFields) {
+    istringstream ss(studentFields);
     string objHolder;
-    string objArr[9];
-    int objInd = 0;
 
-    while (getline(ss, objHolder, ',')) {
-        objArr[objInd++] = objHolder;
-    }
-
+    string studentID, firstName, lastName, emailAddress;
+    int age, daysInCourse1, daysInCourse2, daysInCourse3;
     DegreeProgram degreeProgram;
-    if (objArr[8] == "SECURITY") {
+
+    getline(ss, studentID, ',');
+    getline(ss, firstName, ',');
+    getline(ss, lastName, ',');
+    getline(ss, emailAddress, ',');
+    getline(ss, objHolder, ',');
+
+    age = stoi(objHolder);
+
+    getline(ss, objHolder, ',');
+    daysInCourse1 = stoi(objHolder);
+
+    getline(ss, objHolder, ',');
+    daysInCourse2 = stoi(objHolder);
+
+    getline(ss, objHolder, ',');
+    daysInCourse3 = stoi(objHolder);
+
+    getline(ss, objHolder, ',');
+    if (objHolder == "SECURITY") {
         degreeProgram = SECURITY;
-    }
-    else if (objArr[8] == "NETWORK") {
+    } else if (objHolder == "NETWORK") {
         degreeProgram = NETWORK;
-    }
-    else if (objArr[8] == "SOFTWARE") {
+    } else if (objHolder == "SOFTWARE") {
         degreeProgram = SOFTWARE;
     }
 
-    int daysArray[3];
-    daysArray[0] = stoi(objArr[5]);
-    daysArray[1] = stoi(objArr[6]);
-    daysArray[2] = stoi(objArr[7]);
+    add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+}
+// Add students to roster 
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
+    int daysArray[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
 
-                                    // ID,      first name, last name,   email,     age     
-    Student* newStudent = new Student(objArr[0], objArr[1], objArr[2], objArr[3], stoi(objArr[4]), 
-        daysArray, degreeProgram);
+    Student* newStudent = new Student(studentID, firstName, lastName, emailAddress, age, daysArray, degreeProgram);
 
-    if (stu < 5) {
+    if (stu < rosterSize) {
         classRosterArray[stu] = newStudent;
-        stu += 1;
+        stu++;
     }
 }
 // Remove students from roster
@@ -79,7 +91,6 @@ void Roster::remove(string studentID) {
             break;
         }
     }
-
     if (!isFound) {
         cout << "Student ID: " << studentID << " was not found in the roster.\n";
     }
